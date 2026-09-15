@@ -1,0 +1,52 @@
+---
+import LeadForm from './LeadForm.astro';
+import { site } from '../config/site';
+import { useTranslations, type Lang } from '../i18n/ui';
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<section class="section section--offwhite" id="contact">
+  <div class="wrap pf__inner">
+    <div>
+      <h2>{t.prefooter.heading}</h2>
+      <p class="lede">{t.prefooter.sub}</p>
+
+      <p class="pf__contact">
+        <a href={site.mapsUrl} target="_blank" rel="noopener noreferrer">{site.addressLine}</a>
+        <a href={site.phoneHref}>{site.phoneDisplay}</a>
+      </p>
+    </div>
+
+    <LeadForm
+      formId="form_2_prefooter"
+      lang={lang}
+      heading={t.prefooter.formHeading}
+      sub={t.prefooter.formSub}
+      successHeading={t.confirm.prefooterHeading}
+      successBody={t.confirm.prefooterBody}
+    />
+  </div>
+</section>
+
+<style>
+  .pf__inner {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: clamp(30px, 5vw, 56px);
+    align-items: start;
+  }
+  .pf__contact {
+    display: grid;
+    gap: 5px;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+    font-size: 15.5px;
+  }
+  .pf__contact a { text-decoration: none; color: var(--black); width: fit-content; }
+  .pf__contact a:hover { color: var(--red); }
+  @media (max-width: 860px) { .pf__inner { grid-template-columns: 1fr; } }
+</style>

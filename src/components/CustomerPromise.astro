@@ -1,0 +1,66 @@
+---
+import { useTranslations, type Lang } from '../i18n/ui';
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<section class="section section--offwhite" id="promise">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>{t.promise.heading}</h2>
+      <p class="lede">{t.promise.sub}</p>
+    </div>
+
+    <ul class="promise__grid">
+      {t.promise.bullets.map((b) => (
+        <li class="promise__item">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+            <path d="M20 6 9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          <span>{b}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .promise__grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+  .promise__item {
+    background: #fff;
+    padding: 26px 22px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 14px;
+    align-items: start;
+  }
+  .promise__item svg { color: var(--red); margin-top: 1px; }
+  .promise__item span {
+    font-size: 15px;
+    font-weight: 500;
+    color: #222;
+    line-height: 1.5;
+  }
+  /* Five bullets in a three-up grid leaves one empty cell, so the last item
+     stretches to close the row. */
+  .promise__item:last-child { grid-column: span 2; }
+
+  @media (max-width: 860px) {
+    .promise__grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 520px) {
+    .promise__grid { grid-template-columns: 1fr; }
+    .promise__item:last-child { grid-column: auto; }
+  }
+</style>

@@ -1,0 +1,138 @@
+---
+import { vehicles } from '../data/vehicles';
+import { site } from '../config/site';
+import { useTranslations, type Lang } from '../i18n/ui';
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<section class="section" id="featured-vehicles">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>{t.vehicles.heading}</h2>
+      <p class="lede">{t.vehicles.sub}</p>
+    </div>
+
+    <ul class="car-grid">
+      {vehicles.map((v) => (
+        <li class="car">
+          <div class="car__media">
+            {v.image
+              ? <img src={v.image} alt={v.name} loading="lazy" width="480" height="320" />
+              : <span class="car__placeholder">{t.vehicles.photoPending}</span>}
+          </div>
+
+          <div class="car__body">
+            <h3 class="car__name">{v.year} {v.make} {v.model}</h3>
+            <p class="car__trim">{v.trim}</p>
+
+            <p class="car__meta">
+              <span class="car__price">{v.price ?? t.vehicles.callForPrice}</span>
+              {v.mileage && <span class="car__miles">{v.mileage} {t.vehicles.mileageSuffix}</span>}
+            </p>
+
+            <div class="car__actions">
+              <button
+                type="button"
+                class="btn btn--primary car__cta"
+                data-popup-trigger
+                data-vehicle-name={v.name}
+                data-vehicle-id={v.id}
+                data-vehicle-url={v.url}
+              >{t.vehicles.cardCta}</button>
+              <a class="car__link" href={v.url} target="_blank" rel="noopener noreferrer">
+                {t.vehicles.viewDetails}
+              </a>
+            </div>
+          </div>
+        </li>
+      ))}
+    </ul>
+
+    <p class="car-grid__below">
+      {t.vehicles.belowGrid}
+      <a href={site.phoneHref}>{site.phoneDisplay}</a>
+    </p>
+  </div>
+</section>
+
+<style>
+  .car-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .car {
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+  }
+  .car__media {
+    aspect-ratio: 3 / 2;
+    background: var(--off-white);
+    display: grid;
+    place-items: center;
+    border-bottom: 1px solid var(--line);
+  }
+  .car__media img { width: 100%; height: 100%; object-fit: cover; }
+  .car__placeholder { font-size: 12px; color: var(--grey-text); }
+  .car__body { padding: 16px; display: flex; flex-direction: column; flex: 1; }
+  .car__name {
+    font-size: 17px;
+    margin: 0 0 2px;
+    /* Keeps one- and two-line names on the same baseline across the row. */
+    min-height: 2.2em;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+  }
+  .car__trim { margin: 0 0 12px; font-size: 12.5px; color: var(--grey-text); }
+  .car__meta {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin: 0 0 14px;
+    padding-top: 12px;
+    border-top: 1px solid var(--line);
+  }
+  .car__price {
+    font-family: var(--font-display);
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--black);
+  }
+  .car__miles { font-size: 12.5px; color: var(--grey-text); }
+  .car__actions { margin-top: auto; display: flex; align-items: center; gap: 12px; }
+  .car__cta { flex: 1; padding: 12px 14px; font-size: 13.5px; }
+  .car__link {
+    font-family: var(--font-display);
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    color: var(--grey-text);
+    text-decoration: none;
+    white-space: nowrap;
+    border-bottom: 1px solid var(--line);
+  }
+  .car__link:hover { color: var(--black); border-bottom-color: var(--black); }
+  .car-grid__below {
+    margin: 28px 0 0;
+    font-size: 16px;
+    color: var(--grey-text);
+    max-width: none;
+  }
+  .car-grid__below a {
+    color: var(--red);
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  @media (max-width: 900px) { .car-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .car-grid { grid-template-columns: 1fr; } }
+</style>

@@ -1,0 +1,54 @@
+---
+import { site } from '../config/site';
+import { useTranslations, type Lang } from '../i18n/ui';
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<section class="section section--dark" id="story">
+  <div class="wrap story__inner">
+    <div>
+      <h2>{t.story.heading}</h2>
+      <a class="story__directions" href={site.mapsUrl} target="_blank" rel="noopener noreferrer">
+        {t.story.directions}
+      </a>
+    </div>
+
+    <div class="story__copy">
+      {t.story.paragraphs.map((p) => <p>{p}</p>)}
+      <a class="btn btn--primary" href={site.phoneHref}>{t.nav.call}</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .story__inner {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: clamp(28px, 5vw, 70px);
+    align-items: start;
+  }
+  .story__inner h2 { max-width: 12ch; margin-bottom: 16px; }
+  .story__directions {
+    font-family: var(--font-display);
+    font-size: 14px;
+    letter-spacing: 0.06em;
+    color: #b6b6b6;
+    text-decoration: none;
+    border-bottom: 1px solid var(--line-dark);
+    padding-bottom: 3px;
+  }
+  .story__directions:hover { color: #fff; border-bottom-color: var(--red); }
+  .story__copy p {
+    font-size: 16.5px;
+    color: #c4c4c4;
+    padding-left: 20px;
+    border-left: 1px solid var(--line-dark);
+    margin-bottom: 20px;
+  }
+  .story__copy p:first-child { border-left-color: var(--red); }
+  .story__copy .btn { margin-top: 8px; }
+  @media (max-width: 860px) { .story__inner { grid-template-columns: 1fr; } }
+</style>

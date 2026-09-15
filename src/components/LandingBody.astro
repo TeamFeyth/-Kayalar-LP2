@@ -1,0 +1,32 @@
+---
+import TopBar from './TopBar.astro';
+import Hero from './Hero.astro';
+import CustomerPromise from './CustomerPromise.astro';
+import FeaturedVehicles from './FeaturedVehicles.astro';
+import BrandStory from './BrandStory.astro';
+import PreFooterLead from './PreFooterLead.astro';
+import Footer from './Footer.astro';
+import Popup from './Popup.astro';
+import FormRuntime from './FormRuntime.astro';
+import { useTranslations, type Lang } from '../i18n/ui';
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<a class="skip-link" href="#featured-vehicles">{t.nav.skipToContent}</a>
+
+<TopBar lang={lang} />
+
+<main>
+  <Hero lang={lang} />
+  <CustomerPromise lang={lang} />
+  <FeaturedVehicles lang={lang} />
+  <BrandStory lang={lang} />
+  <PreFooterLead lang={lang} />
+</main>
+
+<Footer lang={lang} />
+<Popup lang={lang} />
+<FormRuntime />

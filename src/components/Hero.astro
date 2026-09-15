@@ -1,0 +1,80 @@
+---
+import LeadForm from './LeadForm.astro';
+import { site } from '../config/site';
+import { useTranslations, type Lang } from '../i18n/ui';
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+// Set to '/images/hero.jpg' once the photo lands in /public/images/.
+// While null the hero stays on flat colour rather than showing an empty frame.
+const heroImage: string | null = null;
+---
+
+<section class="hero" data-has-image={heroImage ? 'true' : 'false'} style={heroImage ? `--hero-image: url('${heroImage}')` : undefined}>
+  <div class="wrap hero__inner">
+    <div class="hero__copy">
+      <h1>{t.hero.headline}</h1>
+      <p class="hero__sub">{t.hero.sub}</p>
+
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="#featured-vehicles">{t.hero.ctaPrimary}</a>
+        <a class="btn btn--ghost" href={site.phoneHref}>{t.hero.ctaSecondary}</a>
+      </div>
+    </div>
+
+    {site.heroForm && (
+      <div class="hero__form" id="hero-form">
+        <LeadForm
+          formId="form_1_hero"
+          lang={lang}
+          heading={t.hero.formHeading}
+          sub={t.hero.formSub}
+          successBody={t.confirm.hero}
+        />
+      </div>
+    )}
+  </div>
+</section>
+
+<style>
+  .hero {
+    background: var(--black);
+    color: #c4c4c4;
+    position: relative;
+    padding-block: clamp(44px, 6vw, 80px);
+  }
+  .hero[data-has-image='true']::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: var(--hero-image);
+    background-size: cover;
+    background-position: center;
+    opacity: 0.32;
+  }
+  .hero__inner {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: clamp(30px, 5vw, 60px);
+    align-items: center;
+  }
+  .hero h1 {
+    color: #fff;
+    margin-bottom: 18px;
+    max-width: 16ch;
+  }
+  .hero__sub {
+    font-size: 17.5px;
+    color: #b6b6b6;
+    margin-bottom: 30px;
+    max-width: 46ch;
+  }
+  .hero__actions { display: flex; flex-wrap: wrap; gap: 12px; }
+  @media (max-width: 900px) {
+    .hero__inner { grid-template-columns: 1fr; }
+    .hero h1 { max-width: none; }
+  }
+</style>
