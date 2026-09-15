@@ -10,7 +10,14 @@ const t = useTranslations(lang);
 <footer class="footer">
   <div class="wrap footer__inner">
     <div>
-      <p class="footer__brand">{site.brand}</p>
+      <img
+        class="footer__logo"
+        src="/images/logo.png"
+        alt={site.brand}
+        width="440"
+        height="134"
+        loading="lazy"
+      />
       <p class="footer__address">
         <a href={site.mapsUrl} target="_blank" rel="noopener noreferrer">{site.addressLine}</a>
         <span aria-hidden="true">/</span>
@@ -19,9 +26,10 @@ const t = useTranslations(lang);
         <span>{t.footer.services}</span>
       </p>
     </div>
-    <a class="footer__privacy" href={site.privacyUrl} target="_blank" rel="noopener noreferrer">
-      {t.footer.privacy}
-    </a>
+    <nav class="footer__legal" aria-label={t.footer.legalLabel}>
+      <a href={site.privacyUrl} target="_blank" rel="noopener noreferrer">{t.footer.privacy}</a>
+      <a href={site.termsUrl} target="_blank" rel="noopener noreferrer">{t.footer.terms}</a>
+    </nav>
   </div>
   <div class="wrap">
     <p class="footer__bottom">{t.footer.bottomLine}</p>
@@ -46,24 +54,21 @@ const t = useTranslations(lang);
     padding-bottom: 20px;
     border-bottom: 1px solid var(--line-dark);
   }
-  .footer__brand {
-    font-family: var(--font-display);
-    font-size: 18px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    color: #fff;
-    margin: 0 0 8px;
+  .footer__logo {
+    width: auto;
+    height: 34px;
+    margin-bottom: 14px;
   }
   .footer__address { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; max-width: none; }
   .footer__address a { color: #9a9a9a; text-decoration: none; }
   .footer__address a:hover { color: #fff; }
-  .footer__privacy {
+  .footer__legal { display: flex; flex-wrap: wrap; gap: 20px; }
+  .footer__legal a {
     color: #9a9a9a;
     text-decoration: none;
     border-bottom: 1px solid var(--line-dark);
   }
-  .footer__privacy:hover { color: #fff; }
+  .footer__legal a:hover { color: #fff; }
   .footer__bottom { margin: 18px 0 0; font-size: 12.5px; color: #6f6f6f; max-width: none; }
 
   .floatcall {

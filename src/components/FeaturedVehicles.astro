@@ -20,7 +20,14 @@ const t = useTranslations(lang);
         <li class="car">
           <div class="car__media">
             {v.image
-              ? <img src={v.image} alt={v.name} loading="lazy" width="480" height="320" />
+              ? <img
+                  src={v.image}
+                  alt={v.name}
+                  width="960"
+                  height="720"
+                  loading="lazy"
+                  decoding="async"
+                />
               : <span class="car__placeholder">{t.vehicles.photoPending}</span>}
           </div>
 
@@ -76,7 +83,7 @@ const t = useTranslations(lang);
     background: #fff;
   }
   .car__media {
-    aspect-ratio: 3 / 2;
+    aspect-ratio: 4 / 3;
     background: var(--off-white);
     display: grid;
     place-items: center;

@@ -138,9 +138,8 @@ For Google and Meta, point the Spanish ad groups directly at `/es/`.
 
 ## 6. Still missing (not blockers for the build)
 
-- **Hero image and vehicle photos.** Cards fall back to a neutral placeholder and
-  the hero stays on flat colour, so nothing looks broken. Drop files in
-  `public/images/` and set the paths in `src/data/vehicles.ts`. See
+- **Hero image.** Vehicle photos and the logo are in. The hero still falls back
+  to flat colour until `public/images/hero.jpg` exists. See
   `public/images/README.md`.
 - **Prices and mileage.** Not specified in the brief for LP2. `price: null`
   renders "Call for price".
