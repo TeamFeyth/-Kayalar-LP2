@@ -141,8 +141,6 @@ For Google and Meta, point the Spanish ad groups directly at `/es/`.
 - **Hero image.** Vehicle photos and the logo are in. The hero still falls back
   to flat colour until `public/images/hero.jpg` exists. See
   `public/images/README.md`.
-- **Prices and mileage.** Not specified in the brief for LP2. `price: null`
-  renders "Call for price".
 - **Business hours.** Needed for the `AutoDealer` schema and to sanity-check the
   "we'll be in touch shortly" promise after hours.
 - **`og-image.jpg`.** Link previews are plain until it exists.
