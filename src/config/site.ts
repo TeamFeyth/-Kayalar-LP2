@@ -33,6 +33,20 @@ export const site = {
   // The brief says "pre-checked by default". See README for the legal note.
   consentPrechecked: import.meta.env.PUBLIC_CONSENT_PRECHECKED !== 'false',
 
+  /**
+   * How long after load the automatic pop-up is allowed to fire at all.
+   * Exit-intent has no natural delay, so without this it can trigger within a
+   * second of landing, which reads as aggressive. Tune per page.
+   */
+  popupDelayMs: Number(import.meta.env.PUBLIC_POPUP_DELAY_MS) || 15000,
+
+  /**
+   * Cloudflare Turnstile. Inert until a site key exists, so the forms keep
+   * working exactly as they do today until it is switched on.
+   * The matching TURNSTILE_SECRET_KEY lives server-side on Cloudflare.
+   */
+  turnstileSiteKey: import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '',
+
   // Section 3 defines a "Hero form" confirmation message for LP2, so the hero
   // ships with a compact form. Section 5.2 only lists scroll/call buttons for
   // the hero, so this is the one place the brief is ambiguous. Set
