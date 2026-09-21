@@ -14,6 +14,16 @@ const t = useTranslations(lang);
       <a class="story__directions" href={site.mapsUrl} target="_blank" rel="noopener noreferrer">
         {t.story.directions}
       </a>
+
+      <img
+        class="story__photo"
+        src="/images/service-lot.webp"
+        alt={t.story.photoAlt}
+        width="900"
+        height="506"
+        loading="lazy"
+        decoding="async"
+      />
     </div>
 
     <div class="story__copy">
@@ -41,6 +51,14 @@ const t = useTranslations(lang);
     padding-bottom: 3px;
   }
   .story__directions:hover { color: #fff; border-bottom-color: var(--red); }
+  .story__photo {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-top: 24px;
+    border-radius: var(--radius);
+    border: 1px solid var(--line-dark);
+  }
   .story__copy p {
     font-size: 16.5px;
     color: #c4c4c4;
