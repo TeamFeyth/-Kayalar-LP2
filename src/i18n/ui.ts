@@ -101,7 +101,7 @@ export const ui = {
         'Some decisions are best made in person. Come see the car, ask every question you have, and if it\u2019s the right fit, most of our customers are done with paperwork in three to four hours.',
       ],
       directions: 'Get directions',
-      photoAlt: 'The Kayalar Motors lot in Houston, Texas',
+      photoAlt: 'The Kayalar Motors service team in the shop',
     },
 
     vehicles: {
@@ -230,7 +230,7 @@ export const ui = {
         'Hay decisiones que se toman mejor en persona. Venga a ver el auto, haga todas las preguntas que tenga y, si es el indicado, la mayor\u00EDa de nuestros clientes termina el papeleo en tres o cuatro horas.',
       ],
       directions: 'C\u00F3mo llegar',
-      photoAlt: 'El lote de Kayalar Motors en Houston, Texas',
+      photoAlt: 'El equipo de servicio de Kayalar Motors en el taller',
     },
 
     vehicles: {

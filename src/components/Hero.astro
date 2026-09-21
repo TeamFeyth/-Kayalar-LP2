@@ -7,8 +7,9 @@ interface Props { lang: Lang; }
 const { lang } = Astro.props;
 const t = useTranslations(lang);
 
-// Supplied by the client: the service team under a vehicle on the lift.
-const heroImage: string | null = '/images/hero.webp';
+// No hero image: the hero stays on flat colour. Setting a path here brings
+// back the photo treatment, scrim included, with no other change.
+const heroImage: string | null = null;
 ---
 
 <section class="hero" data-has-image={heroImage ? 'true' : 'false'} style={heroImage ? `--hero-image: url('${heroImage}')` : undefined}>
@@ -85,7 +86,7 @@ const heroImage: string | null = '/images/hero.webp';
   }
   .hero__sub {
     font-size: 17.5px;
-    color: #d4d4d4;
+    color: #b6b6b6;
     margin-bottom: 30px;
     max-width: 46ch;
   }
