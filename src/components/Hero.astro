@@ -7,9 +7,9 @@ interface Props { lang: Lang; }
 const { lang } = Astro.props;
 const t = useTranslations(lang);
 
-// No hero image: the hero stays on flat colour. Setting a path here brings
-// back the photo treatment, scrim included, with no other change.
-const heroImage: string | null = null;
+// The dealership lot at dusk, supplied by the client. Sits behind the hero at
+// low opacity under the scrim below, so the headline keeps its contrast.
+const heroImage: string | null = '/images/hero.webp';
 ---
 
 <section class="hero" data-has-image={heroImage ? 'true' : 'false'} style={heroImage ? `--hero-image: url('${heroImage}')` : undefined}>
@@ -52,7 +52,7 @@ const heroImage: string | null = null;
     background-image: var(--hero-image);
     background-size: cover;
     background-position: center;
-    opacity: 0.4;
+    opacity: 0.55;
   }
 
   /* Scrim so the headline and sub-copy keep their contrast wherever the photo
@@ -64,10 +64,10 @@ const heroImage: string | null = null;
     inset: 0;
     background: linear-gradient(
       100deg,
-      rgba(18, 18, 18, 0.93) 0%,
-      rgba(18, 18, 18, 0.78) 34%,
-      rgba(18, 18, 18, 0.3) 68%,
-      rgba(18, 18, 18, 0.12) 100%
+      rgba(18, 18, 18, 0.88) 0%,
+      rgba(18, 18, 18, 0.7) 34%,
+      rgba(18, 18, 18, 0.28) 68%,
+      rgba(18, 18, 18, 0.1) 100%
     );
   }
 
@@ -85,8 +85,10 @@ const heroImage: string | null = null;
     max-width: 16ch;
   }
   .hero__sub {
+    /* Slightly lighter than the no-photo default: this text sits over the
+       lot photo, not over flat colour. */
     font-size: 17.5px;
-    color: #b6b6b6;
+    color: #d0d0d0;
     margin-bottom: 30px;
     max-width: 46ch;
   }
