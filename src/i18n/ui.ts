@@ -20,7 +20,7 @@ export const ui = {
     },
 
     nav: {
-      call: 'Call 832-966-7907',
+      call: 'Call 832-373-7322',
       langLabel: 'Language',
       skipToContent: 'Skip to inventory',
     },
@@ -29,7 +29,7 @@ export const ui = {
       headline: 'Quality You Can Trust. Service You Can Count On.',
       sub: "Houston's top-rated, family-run dealership. Hand-picked inventory of clean pre-owned vehicles.",
       ctaPrimary: 'View Inventory',
-      ctaSecondary: 'Call 832-966-7907',
+      ctaSecondary: 'Call 832-373-7322',
       formHeading: 'Check availability',
       formSub: "A few quick questions, and we'll get back to you today.",
       imageAlt: 'The Kayalar Motors service team in the shop',
@@ -57,7 +57,7 @@ export const ui = {
         email: 'Enter a valid email address.',
         phone: 'Enter a 10-digit US phone number.',
         select: 'Pick an option.',
-        network: 'That didn\u2019t go through. Try again, or call us at 832-966-7907.',
+        network: 'That didn\u2019t go through. Try again, or call us at 832-373-7322.',
       },
     },
 
@@ -118,7 +118,7 @@ export const ui = {
     prefooter: {
       heading: 'Not sure which car is right?',
       sub: 'Tell us what you need, and we\u2019ll point you toward the right vehicle.',
-      contactLine: '16230 FM 529 Road, Houston, TX 77095 / 832-966-7907',
+      contactLine: '16230 FM 529 Road, Houston, TX 77095 / 832-373-7322',
       formHeading: 'Ready to see it in person?',
       formSub: 'A few quick questions, and we\u2019ll have it ready for you.',
     },
@@ -149,7 +149,7 @@ export const ui = {
     },
 
     nav: {
-      call: 'Llame al 832-966-7907',
+      call: 'Llame al 832-373-7322',
       langLabel: 'Idioma',
       skipToContent: 'Ir al inventario',
     },
@@ -158,7 +158,7 @@ export const ui = {
       headline: 'Calidad en la que puede confiar. Servicio con el que puede contar.',
       sub: 'El concesionario familiar mejor calificado de Houston. Inventario de autos usados seleccionados a mano.',
       ctaPrimary: 'Ver inventario',
-      ctaSecondary: 'Llame al 832-966-7907',
+      ctaSecondary: 'Llame al 832-373-7322',
       formHeading: 'Consulte disponibilidad',
       formSub: 'Unas preguntas r\u00E1pidas y le respondemos hoy mismo.',
       imageAlt: 'El equipo de servicio de Kayalar Motors en el taller',
@@ -186,7 +186,7 @@ export const ui = {
         email: 'Escriba un correo electr\u00F3nico v\u00E1lido.',
         phone: 'Escriba un tel\u00E9fono de 10 d\u00EDgitos.',
         select: 'Elija una opci\u00F3n.',
-        network: 'No se pudo enviar. Int\u00E9ntelo de nuevo o ll\u00E1menos al 832-966-7907.',
+        network: 'No se pudo enviar. Int\u00E9ntelo de nuevo o ll\u00E1menos al 832-373-7322.',
       },
     },
 
@@ -247,7 +247,7 @@ export const ui = {
     prefooter: {
       heading: '\u00BFNo sabe cu\u00E1l auto es el indicado?',
       sub: 'D\u00EDganos qu\u00E9 necesita y le ayudamos a encontrar el veh\u00EDculo correcto.',
-      contactLine: '16230 FM 529 Road, Houston, TX 77095 / 832-966-7907',
+      contactLine: '16230 FM 529 Road, Houston, TX 77095 / 832-373-7322',
       formHeading: '\u00BFListo para verlo en persona?',
       formSub: 'Unas preguntas r\u00E1pidas y se lo tenemos listo.',
     },
