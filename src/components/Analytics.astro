@@ -8,7 +8,7 @@
  */
 import { site, tracking } from '../config/site';
 
-const { metaPixelId, gtmId, ga4Id, callRailSwapSrc, searchConsoleToken } = tracking;
+const { metaPixelId, gtmId, ga4Id, searchConsoleToken } = tracking;
 ---
 
 {searchConsoleToken && <meta name="google-site-verification" content={searchConsoleToken} />}
@@ -79,8 +79,6 @@ const { metaPixelId, gtmId, ga4Id, callRailSwapSrc, searchConsoleToken } = track
   )
 }
 
-{/* ---- CallRail Dynamic Number Insertion ---- */}
-{callRailSwapSrc && <script is:inline async src={callRailSwapSrc} />}
 
 {/* ---- Cloudflare Turnstile ----
      Rendered explicitly rather than by class scan, because two of the four

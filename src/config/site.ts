@@ -66,6 +66,9 @@ export const tracking = {
   // from the other landing page, so the two stay independent in GTM.
   gtmId: import.meta.env.PUBLIC_GTM_ID || 'GTM-NC6WFXBX',
   ga4Id: import.meta.env.PUBLIC_GA4_ID || '',            // e.g. G-XXXXXXXXXX
-  callRailSwapSrc: import.meta.env.PUBLIC_CALLRAIL_SWAP_SRC || '', // //cdn.callrail.com/companies/.../swap.js
+  // Same Kayalar CallRail account as LP1.
+  callRailSwapSrc:
+    import.meta.env.PUBLIC_CALLRAIL_SWAP_SRC ||
+    '//cdn.callrail.com/companies/357324316/48d41d9d83314e44f676/12/swap.js',
   searchConsoleToken: import.meta.env.PUBLIC_GSC_VERIFICATION || '',
 } as const;
